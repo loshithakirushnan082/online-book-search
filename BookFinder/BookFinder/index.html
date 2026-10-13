@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookFinder - Online Book Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">📚 BookFinder</h1>
+      <nav class="tabs">
+        <button id="tab-search" class="tab active" type="button">Search</button>
+        <button id="tab-favs" class="tab" type="button">
+          Favourites <span id="fav-count" class="badge">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- SEARCH SECTION -->
+    <section id="search-section">
+      <form id="search-form" class="search-form" autocomplete="off">
+        <select id="search-type" aria-label="Search by">
+          <option value="q">All</option>
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="subject">Subject</option>
+        </select>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search books... (e.g. Harry Potter, Kalam, Python)"
+          required
+        />
+        <button type="submit" class="btn-primary">Search</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="results" class="grid"></div>
+
+      <div id="pagination" class="pagination hidden">
+        <button id="prev-btn" type="button">← Prev</button>
+        <span id="page-info"></span>
+        <button id="next-btn" type="button">Next →</button>
+      </div>
+    </section>
+
+    <!-- FAVOURITES SECTION -->
+    <section id="favs-section" class="hidden">
+      <h2>My Favourite Books</h2>
+      <div id="favs-status" class="status"></div>
+      <div id="favs-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- DETAILS MODAL -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close" type="button" aria-label="Close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Data from <a href="https://openlibrary.org" target="_blank" rel="noopener">Open Library API</a> · Modern Web Programming Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
